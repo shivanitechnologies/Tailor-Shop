@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Suit Designer | The Gentleman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner"><a class="brand" href="index.html"><span class="brand-mark">T</span><span class="brand-copy"><strong>THE GENTLEMAN</strong><small>Bespoke tailoring studio</small></span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="suits.html">Men's Suits</a></li><li><a href="shirts.html">Men's Shirts</a></li><li><a href="fabrics.html">Fabric Collection</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard/customer-dashboard.html">Dashboard</a></li></ul><div class="header-tools"><button class="icon-btn" data-theme-toggle><span class="theme-icon">☾</span></button><button class="icon-btn" data-rtl-toggle><span class="rtl-icon">RTL</span></button><a href="contact.html" class="btn btn-small header-book">Book Appointment</a><a href="auth/login.html" class="btn btn-small btn-outline header-login">Login</a><button class="icon-btn menu-toggle">☰</button></div></div>
+  </header>
+  <main>
+    <section class="page-hero"><div class="container"><div class="breadcrumb">Home / Suit Designer</div><h1>Design a suit that feels unmistakably yours.</h1><p>Shape the silhouette, fabric, and finishing details with a custom, in-browser design experience.</p></div></section>
+    <section class="section">
+      <div class="container designer-layout">
+        <div class="designer-controls reveal">
+          <div class="field">
+            <label for="suit-color">Suit color</label>
+            <select id="suit-color">
+              <option value="#203148">Navy</option>
+              <option value="#4b544e">Forest</option>
+              <option value="#8d7f6f">Taupe</option>
+              <option value="#a99875">Champagne</option>
+              <option value="#1f2022">Midnight</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="suit-fabric">Fabric</label>
+            <select id="suit-fabric">
+              <option value="wool">Italian wool</option>
+              <option value="linen">Linen</option>
+              <option value="blend">Signature blend</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="lapel-style">Lapel style</label>
+            <select id="lapel-style">
+              <option value="notch">Notch</option>
+              <option value="peak">Peak</option>
+              <option value="shawl">Shawl</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="button-count">Number of buttons</label>
+            <select id="button-count">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div class="field full">
+            <div class="form-note">Your design is saved only after checkout or for local preview. The experience is an interactive concept preview built for fast visual exploration.</div>
+          </div>
+          <div class="hero-actions">
+            <button id="reset-design" class="btn btn-outline">Reset Design</button>
+            <button id="save-design" class="btn btn-gold">Save Design</button>
+            <button id="continue-booking" class="btn">Continue to Booking</button>
+          </div>
+        </div>
+        <div class="designer-preview reveal">
+          <div class="designer-jacket">
+            <div class="designer-shirt"></div>
+            <div class="designer-lapel"></div>
+            <div class="designer-lapel right"></div>
+            <div class="designer-button"></div>
+          </div>
+          <div class="designer-caption">Live design preview</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark">T</span><span class="brand-copy"><strong>THE GENTLEMAN</strong><small>Bespoke tailoring studio</small></span></a><p>Interactive suit customisation for a wardrobe that feels uniquely yours.</p></div><div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a></div><div class="footer-col"><h4>Collections</h4><a href="suits.html">Men's Suits</a><a href="shirts.html">Men's Shirts</a><a href="fabrics.html">Fabrics</a></div><div class="footer-col"><h4>Visit</h4><p>18 Regent Avenue</p><a href="tel:+1234567890">+1 (234) 567-890</a><a href="mailto:studio@thegentleman.com">studio@thegentleman.com</a></div></div><div class="container footer-bottom"><span>© 2026 The Gentleman</span><span>Tailored for modern men.</span></div></footer>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>

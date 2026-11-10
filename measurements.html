@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Measurements | The Gentleman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner"><a class="brand" href="index.html"><span class="brand-mark">T</span><span class="brand-copy"><strong>THE GENTLEMAN</strong><small>Bespoke tailoring studio</small></span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="suits.html">Men's Suits</a></li><li><a href="shirts.html">Men's Shirts</a></li><li><a href="fabrics.html">Fabric Collection</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard/customer-dashboard.html">Dashboard</a></li></ul><div class="header-tools"><button class="icon-btn" data-theme-toggle><span class="theme-icon">☾</span></button><button class="icon-btn" data-rtl-toggle><span class="rtl-icon">RTL</span></button><a href="contact.html" class="btn btn-small header-book">Book Appointment</a><a href="auth/login.html" class="btn btn-small btn-outline header-login">Login</a><button class="icon-btn menu-toggle">☰</button></div></div>
+  </header>
+  <main>
+    <section class="page-hero"><div class="container"><div class="breadcrumb">Home / Measurements</div><h1>Measured for a perfect silhouette.</h1><p>Capture key body dimensions with an informed, guided process designed for exact tailoring.</p></div></section>
+    <section class="section">
+      <div class="container measurement-layout">
+        <div class="measure-form reveal">
+          <div class="unit-toggle">
+            <button class="active" data-unit="cm">CM</button>
+            <button data-unit="in">Inches</button>
+          </div>
+          <form id="measurement-form" data-validate>
+            <div class="form-grid">
+              <div class="field"><label for="chest">Chest</label><input id="chest" type="number" required data-measurement="Chest"></div>
+              <div class="field"><label for="shoulder">Shoulder</label><input id="shoulder" type="number" required data-measurement="Shoulder"></div>
+              <div class="field"><label for="sleeve">Sleeve Length</label><input id="sleeve" type="number" required data-measurement="Sleeve Length"></div>
+              <div class="field"><label for="waist">Waist</label><input id="waist" type="number" required data-measurement="Waist"></div>
+              <div class="field"><label for="hip">Hip</label><input id="hip" type="number" required data-measurement="Hip"></div>
+              <div class="field"><label for="neck">Neck</label><input id="neck" type="number" required data-measurement="Neck"></div>
+              <div class="field"><label for="shirt-length">Shirt Length</label><input id="shirt-length" type="number" required data-measurement="Shirt Length"></div>
+              <div class="field"><label for="trouser-length">Trouser Length</label><input id="trouser-length" type="number" required data-measurement="Trouser Length"></div>
+              <div class="field"><label for="inseam">Inseam</label><input id="inseam" type="number" required data-measurement="Inseam"></div>
+            </div>
+            <div class="hero-actions" style="margin-top:26px;"><button type="submit" class="btn btn-gold">Save Measurements</button><button type="button" class="btn btn-outline">Edit Measurements</button></div>
+          </form>
+        </div>
+        <div class="measure-guide reveal">
+          <div class="measure-figure"></div>
+          <div class="measure-tape"></div>
+          <p>Measure around the fullest part of the chest and waist. Keep the tape level and relaxed for accurate tailoring.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark">T</span><span class="brand-copy"><strong>THE GENTLEMAN</strong><small>Bespoke tailoring studio</small></span></a><p>Professional sizing guidance and exacting fit assessment for tailored clothing.</p></div><div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a></div><div class="footer-col"><h4>Collections</h4><a href="suits.html">Men's Suits</a><a href="shirts.html">Men's Shirts</a><a href="fabrics.html">Fabrics</a></div><div class="footer-col"><h4>Visit</h4><p>18 Regent Avenue</p><a href="tel:+1234567890">+1 (234) 567-890</a><a href="mailto:studio@thegentleman.com">studio@thegentleman.com</a></div></div><div class="container footer-bottom"><span>© 2026 The Gentleman</span><span>Tailored for modern men.</span></div></footer>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
