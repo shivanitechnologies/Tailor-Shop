@@ -378,6 +378,19 @@ const setupGallery = () => {
 const setupForms = () => {
   const forms = document.querySelectorAll('form[data-validate]');
   forms.forEach((form) => {
+    const appointmentDate = form.querySelector('#appointment-date');
+    if (appointmentDate) {
+      const today = new Date();
+      const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000);
+      appointmentDate.min = localDate.toISOString().slice(0, 10);
+    }
+
+    const serviceField = form.querySelector('#service');
+    const requestedService = new URLSearchParams(window.location.search).get('service');
+    if (serviceField && requestedService && Array.from(serviceField.options).some((option) => option.value === requestedService)) {
+      serviceField.value = requestedService;
+    }
+
     form.addEventListener('submit', (event) => {
       const invalid = form.querySelector(':invalid');
       if (invalid) {

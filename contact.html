@@ -31,7 +31,21 @@
               <div class="field"><label for="name">Full Name</label><input id="name" type="text" required></div>
               <div class="field"><label for="phone">Phone</label><input id="phone" type="tel" required></div>
               <div class="field full"><label for="email">Email Address</label><input id="email" type="email" required></div>
-              <div class="field full"><label for="service">Service Required</label><select id="service"><option>Custom Suit</option><option>Custom Shirt</option><option>Wedding Tailoring</option><option>Alterations</option></select></div>
+              <div class="field full"><label for="service">Service Required</label><select id="service" name="service" required><option value="">Select a service</option><option value="custom-suit">Bespoke Suit</option><option value="custom-shirt">Custom Shirt</option><option value="wedding">Wedding Wear</option><option value="alterations">Alterations</option></select></div>
+              <div class="field"><label for="appointment-date">Preferred Appointment Date</label><input id="appointment-date" name="appointment-date" type="date" required></div>
+              <div class="field"><label for="appointment-time">Preferred Time</label><select id="appointment-time" name="appointment-time" required><option value="">Choose a time</option><option>9:30 AM – 11:00 AM</option><option>11:00 AM – 1:00 PM</option><option>1:00 PM – 3:00 PM</option><option>3:00 PM – 5:00 PM</option><option>5:00 PM – 7:00 PM</option></select></div>
+              <div class="field full"><label for="appointment-type">Fitting Preference</label><select id="appointment-type" name="appointment-type" required><option value="">Choose an appointment type</option><option>In-studio measurement</option><option>In-studio fitting</option><option>Virtual consultation</option></select></div>
+              <div class="field full">
+                <label>Measurements (optional, if known)</label>
+                <p class="form-note">You can also bring your measurements to the appointment. <a href="measurements.html">Open the measurement guide</a>.</p>
+                <div class="form-grid">
+                  <div class="field"><label for="measurement-unit">Units</label><select id="measurement-unit" name="measurement-unit"><option>Centimeters</option><option>Inches</option></select></div>
+                  <div class="field"><label for="chest-measurement">Chest</label><input id="chest-measurement" name="chest-measurement" type="number" min="1" max="300" step="0.1" inputmode="decimal" placeholder="Optional"></div>
+                  <div class="field"><label for="waist-measurement">Waist</label><input id="waist-measurement" name="waist-measurement" type="number" min="1" max="300" step="0.1" inputmode="decimal" placeholder="Optional"></div>
+                  <div class="field"><label for="sleeve-measurement">Sleeve length</label><input id="sleeve-measurement" name="sleeve-measurement" type="number" min="1" max="300" step="0.1" inputmode="decimal" placeholder="Optional"></div>
+                  <div class="field"><label for="inseam-measurement">Inseam</label><input id="inseam-measurement" name="inseam-measurement" type="number" min="1" max="300" step="0.1" inputmode="decimal" placeholder="Optional"></div>
+                </div>
+              </div>
               <div class="field full"><label for="message">Tell us about your project</label><textarea id="message" required></textarea></div>
             </div>
             <div class="hero-actions" style="margin-top:20px;"><button class="btn btn-gold">Send enquiry</button><a href="https://wa.me/1234567890" class="btn btn-outline" target="_blank" rel="noreferrer">WhatsApp</a></div>
