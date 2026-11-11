@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&amp;fit=crop&amp;w=1600&amp;q=75" fetchpriority="high">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&amp;fit=crop&amp;w=1600&amp;q=75" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -30,20 +30,22 @@
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="dashboard/customer-dashboard.html">Dashboard</a></li>
-      </ul>
+      <li class="nav-auth-link nav-login"><a href="auth/login.html">Log In</a></li><li class="nav-auth-link nav-signup"><a href="auth/signup.html">Sign Up</a></li></ul>
       <div class="header-tools">
         <button class="icon-btn" data-theme-toggle><span class="theme-icon">☾</span></button>
-        <button class="icon-btn" data-rtl-toggle><span class="rtl-icon">RTL</span></button>
+        <button type="button" class="direction-toggle" data-direction-toggle data-direction-state="ltr" aria-label="Switch to right-to-left text direction" aria-pressed="false"><span class="direction-label">RTL</span></button>
         <a href="contact.html" class="btn btn-small header-book">Book Appointment</a>
-        <a href="auth/login.html" class="btn btn-small btn-outline header-login">Login</a>
+
         <button class="icon-btn menu-toggle">☰</button>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="hero hero-premium auto-hero" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=75');">
+    <section class="hero hero-premium auto-hero" data-hero-slideshow>
+      <div class="hero-bg is-active" data-image="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=75" style="background-image:url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=75');"></div>
+      <div class="hero-bg hero-bg-slide" data-image="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=1600&q=75" aria-hidden="true"></div>
+      <div class="hero-bg hero-bg-slide" data-image="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=75" aria-hidden="true"></div>
       <div class="hero-content">
         <div class="hero-copy reveal">
           <div class="eyebrow">The Gentleman · Bespoke Performance Tailoring</div>
@@ -56,7 +58,30 @@
           <div class="stitch"></div>
         </div>
       </div>
-      <div class="auto-hero-caption"><span>01 / 04</span><span>Designed around your measure</span></div>
+      <div class="auto-hero-caption"><span data-hero-count>01 / 03</span><span>Designed around your measure</span></div>
+    </section>
+
+    <section class="section atelier-film-section atelier-film-contrast">
+      <div class="container atelier-film-layout">
+        <div class="atelier-film-copy reveal">
+          <div class="eyebrow">The work behind the silhouette</div>
+          <h2>Precision is felt in every movement.</h2>
+          <p>Our automotive-inspired standard belongs in the atelier: considered materials, exact construction, and a final fit refined around the way you move.</p>
+          <div class="atelier-film-details">
+            <div><strong>01</strong><span>Personal pattern</span></div>
+            <div><strong>02</strong><span>Measured construction</span></div>
+            <div><strong>03</strong><span>One-of-one finish</span></div>
+          </div>
+          <a class="btn btn-gold" href="contact.html">Commission your piece</a>
+        </div>
+        <div class="atelier-film-frame reveal">
+          <div class="atelier-film-kicker">Craft in motion · 01</div>
+          <video class="atelier-film" muted playsinline controls preload="none" data-poster="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=900&q=72" aria-label="A tailor at work in his sewing atelier">
+            <source data-src="https://upload.wikimedia.org/wikipedia/commons/transcoded/d/df/ONG_portuguesa_Helpo_%27vira%27_nome_de_alfaiataria_em_Cabo_Delgado_%281080p%29.webm/ONG_portuguesa_Helpo_%27vira%27_nome_de_alfaiataria_em_Cabo_Delgado_%281080p%29.webm.240p.vp9.webm" type="video/webm">
+          </video>
+          <div class="atelier-film-credit">Video: Agencia LUSA / <a href="https://commons.wikimedia.org/wiki/File:ONG_portuguesa_Helpo_%27vira%27_nome_de_alfaiataria_em_Cabo_Delgado_(1080p).webm" target="_blank" rel="noopener">Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a></div>
+        </div>
+      </div>
     </section>
 
     <section class="auto-marquee" aria-label="Automotive atelier values">

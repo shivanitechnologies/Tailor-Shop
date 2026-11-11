@@ -26,7 +26,7 @@ const setupAutoMotion = () => {
   const hero = document.querySelector('.hero');
   const heroBg = document.querySelector('.hero-bg');
 
-  if (hero && heroBg) {
+  if (hero && heroBg && !hero.hasAttribute('data-hero-slideshow')) {
     hero.addEventListener('pointermove', (event) => {
       const rect = hero.getBoundingClientRect();
       const offsetX = ((event.clientX - rect.left) / rect.width - 0.5) * 18;
@@ -126,6 +126,15 @@ const setDirection = (dir) => {
   document.documentElement.setAttribute('dir', dir);
   document.body.setAttribute('dir', dir);
   localStorage.setItem(STORAGE_DIR, dir);
+  document.querySelectorAll('[data-direction-toggle]').forEach((button) => {
+    button.dataset.directionState = dir;
+    button.setAttribute('aria-pressed', String(dir === 'rtl'));
+    const nextDirection = dir === 'rtl' ? 'left-to-right' : 'right-to-left';
+    const label = dir === 'rtl' ? 'LTR' : 'RTL';
+    const labelNode = button.querySelector('.direction-label');
+    if (labelNode) labelNode.textContent = label;
+    button.setAttribute('aria-label', `Switch to ${nextDirection} text direction`);
+  });
 };
 
 const setupTheme = () => {
@@ -141,10 +150,10 @@ const setupTheme = () => {
     });
   });
 
-  document.querySelectorAll('[data-rtl-toggle]').forEach((button) => {
+  document.querySelectorAll('[data-direction-toggle]').forEach((button) => {
     button.addEventListener('click', () => {
-      const next = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
-      setDirection(next);
+      const current = document.documentElement.getAttribute('dir') || 'ltr';
+      setDirection(current === 'rtl' ? 'ltr' : 'rtl');
     });
   });
 };
@@ -175,6 +184,41 @@ const setupFaq = () => {
     button.addEventListener('click', () => {
       item.classList.toggle('open');
     });
+  });
+};
+
+const setupHeroSlideshows = () => {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-hero-slideshow]').forEach((hero) => {
+    const slides = Array.from(hero.querySelectorAll('.hero-bg'));
+    if (reducedMotion || slides.length < 2) return;
+
+    let activeIndex = 0;
+    slides[0].classList.add('is-active');
+    let nextIndex = 1;
+
+    const advance = () => {
+      if (document.hidden) return;
+      const next = slides[nextIndex];
+      const imageUrl = next.dataset.image;
+      if (!imageUrl) return;
+
+      const image = new Image();
+      image.onload = () => {
+        if (document.hidden) return;
+        next.style.backgroundImage = `url("${imageUrl}")`;
+        next.classList.add('is-active');
+        slides[activeIndex].classList.remove('is-active');
+        activeIndex = nextIndex;
+        nextIndex = (nextIndex + 1) % slides.length;
+
+        const counter = hero.querySelector('[data-hero-count]');
+        if (counter) counter.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+      };
+      image.src = imageUrl;
+    };
+
+    window.setInterval(advance, 7000);
   });
 };
 
@@ -219,6 +263,81 @@ const setupLazyBackgrounds = () => {
   }, { rootMargin: '250px 0px' });
 
   items.forEach((item) => observer.observe(item));
+};
+
+const setupScrollVideos = () => {
+  const videos = document.querySelectorAll('.atelier-film');
+  if (!videos.length) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const loadVideo = (video) => {
+    if (video.dataset.poster) {
+      video.poster = video.dataset.poster;
+      delete video.dataset.poster;
+    }
+    const source = video.querySelector('source[data-src]');
+    if (!source) return;
+    source.src = source.dataset.src;
+    source.removeAttribute('data-src');
+    video.load();
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    videos.forEach((video) => {
+      video.addEventListener('pointerenter', () => loadVideo(video), { once: true });
+      video.addEventListener('focus', () => loadVideo(video), { once: true });
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        loadVideo(video);
+        if (!reducedMotion) {
+          video.play().catch(() => video.setAttribute('data-autoplay-blocked', ''));
+        }
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.35, rootMargin: '100px 0px' });
+
+  videos.forEach((video) => observer.observe(video));
+};
+
+const setupCatalogFilters = () => {
+  document.querySelectorAll('.catalog-grid').forEach((grid) => {
+    const filterRow = grid.parentElement.querySelector('.filter-row');
+    if (!filterRow) return;
+
+    const cards = Array.from(grid.querySelectorAll('.catalog-card'));
+    const filterButtons = Array.from(filterRow.querySelectorAll('[data-filter]'));
+    const searchInput = filterRow.querySelector('.search-input');
+    let activeFilter = filterButtons.find((button) => button.classList.contains('active'))?.dataset.filter || 'all';
+
+    const applyFilters = () => {
+      const query = searchInput?.value.trim().toLocaleLowerCase() || '';
+      cards.forEach((card) => {
+        const categories = (card.dataset.category || '').split(/\s+/);
+        const matchesFilter = activeFilter === 'all' || categories.includes(activeFilter);
+        const matchesSearch = !query || card.textContent.toLocaleLowerCase().includes(query);
+        card.hidden = !matchesFilter || !matchesSearch;
+      });
+    };
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        activeFilter = button.dataset.filter;
+        filterButtons.forEach((filterButton) => filterButton.classList.toggle('active', filterButton === button));
+        applyFilters();
+      });
+    });
+
+    if (searchInput) searchInput.addEventListener('input', applyFilters);
+    applyFilters();
+  });
 };
 
 const showToast = (message, type = 'success') => {
@@ -371,8 +490,11 @@ document.addEventListener('DOMContentLoaded', () => {
   setupNav();
   setupFaq();
   setupReveal();
+  setupHeroSlideshows();
   setupLazyBackgrounds();
+  setupScrollVideos();
   setupGallery();
+  setupCatalogFilters();
   setupForms();
   setupMeasurement();
   setupSuitDesigner();

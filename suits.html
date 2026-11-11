@@ -23,13 +23,12 @@
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="dashboard/customer-dashboard.html">Dashboard</a></li>
-      </ul>
+      <li class="nav-auth-link nav-login"><a href="auth/login.html">Log In</a></li><li class="nav-auth-link nav-signup"><a href="auth/signup.html">Sign Up</a></li></ul>
       <div class="header-tools">
         <button class="icon-btn" data-theme-toggle><span class="theme-icon">☾</span></button>
-        <button class="icon-btn" data-rtl-toggle><span class="rtl-icon">RTL</span></button>
+        <button type="button" class="direction-toggle" data-direction-toggle data-direction-state="ltr" aria-label="Switch to right-to-left text direction" aria-pressed="false"><span class="direction-label">RTL</span></button>
         <a href="contact.html" class="btn btn-small header-book">Book Appointment</a>
-        <a href="auth/login.html" class="btn btn-small btn-outline header-login">Login</a>
+
         <button class="icon-btn menu-toggle">☰</button>
       </div>
     </div>
@@ -39,18 +38,22 @@
     <section class="section">
       <div class="container">
         <div class="filter-row reveal">
-          <button class="filter-chip active">All</button>
-          <button class="filter-chip">Business</button>
-          <button class="filter-chip">Wedding</button>
-          <button class="filter-chip">Formal</button>
-          <button class="filter-chip">Slim Fit</button>
+          <button type="button" class="filter-chip active" data-filter="all">All</button>
+          <button type="button" class="filter-chip" data-filter="business">Business</button>
+          <button type="button" class="filter-chip" data-filter="wedding">Wedding</button>
+          <button type="button" class="filter-chip" data-filter="formal">Formal</button>
+          <button type="button" class="filter-chip" data-filter="slim">Slim Fit</button>
           <input class="search-input" type="search" placeholder="Search suits" aria-label="Search suits">
         </div>
-        <div class="product-grid">
-          <article class="product-card reveal"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=720&q=72" alt="Business suit"><div class="card-body"><h3>Executive Navy</h3><p>Wool blend with soft drape and classic lapel structure.</p><div class="card-meta"><span>Deep Navy</span><span class="price-label">$1,280</span></div><a href="contact.html" class="btn btn-small btn-outline">View Details</a></div></article>
-          <article class="product-card reveal"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=720&q=72" alt="Wedding suit"><div class="card-body"><h3>Champagne Occasion</h3><p>Soft structured silk blend designed for elevated events.</p><div class="card-meta"><span>Champagne</span><span class="price-label">$1,640</span></div><a href="contact.html" class="btn btn-small btn-outline">Customize Suit</a></div></article>
-          <article class="product-card reveal"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=720&q=72" alt="Tuxedo"><div class="card-body"><h3>Midnight Tuxedo</h3><p>Evening silhouette with black wool and satin detail.</p><div class="card-meta"><span>Black</span><span class="price-label">$1,980</span></div><a href="contact.html" class="btn btn-small btn-outline">Customize Suit</a></div></article>
-          <article class="product-card reveal"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=720&q=72" alt="Three-piece suit"><div class="card-body"><h3>Heritage Three Piece</h3><p>Sharp and understated with clean, confident shapes.</p><div class="card-meta"><span>Three-piece</span><span class="price-label">$1,460</span></div><a href="contact.html" class="btn btn-small btn-outline">View Details</a></div></article>
+        <div class="product-grid catalog-grid">
+          <article class="product-card catalog-card reveal" data-category="business slim"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=720&q=72" alt="Midnight navy executive suit"><div class="card-body"><h3>Midnight Executive</h3><p>Super 120s wool, a clean shoulder, and a close, balanced silhouette for the working week.</p><div class="card-meta"><span>Midnight Navy · Business</span><span class="price-label">$1,280</span></div><a href="contact.html" class="btn btn-small btn-outline">Customize Suit</a></div></article>
+          <article class="product-card catalog-card reveal" data-category="wedding"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=720&q=72" alt="Champagne wedding suit"><div class="card-body"><h3>Champagne Occasion</h3><p>A softly structured occasion suit with elegant tonal finishing for the ceremony.</p><div class="card-meta"><span>Champagne · Wedding</span><span class="price-label">$1,640</span></div><a href="contact.html" class="btn btn-small btn-outline">Customize Suit</a></div></article>
+          <article class="product-card catalog-card reveal" data-category="formal"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=720&q=72" alt="Black formal tuxedo"><div class="card-body"><h3>Black-Tie Tuxedo</h3><p>Evening wool with a satin-faced lapel and a precise, understated finish.</p><div class="card-meta"><span>Black · Formal</span><span class="price-label">$1,980</span></div><a href="contact.html" class="btn btn-small btn-outline">Customize Suit</a></div></article>
+          <article class="product-card catalog-card reveal" data-category="business"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=720&q=72" alt="Heritage three-piece suit"><div class="card-body"><h3>Heritage Three-Piece</h3><p>A waistcoat-led classic with considered proportions and a softly shaped jacket.</p><div class="card-meta"><span>Charcoal · Business</span><span class="price-label">$1,460</span></div><a href="contact.html" class="btn btn-small btn-outline">View Details</a></div></article>
+          <article class="product-card catalog-card reveal" data-category="business slim"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=720&q=72" alt="Graphite travel suit"><div class="card-body"><h3>Graphite Traveller</h3><p>Lightweight, crease-conscious tailoring designed for long days and frequent travel.</p><div class="card-meta"><span>Graphite · Business</span><span class="price-label">$1,390</span></div><a href="contact.html" class="btn btn-small btn-outline">Customize Suit</a></div></article>
+          <article class="product-card catalog-card reveal" data-category="formal"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=720&q=72" alt="Double-breasted formal suit"><div class="card-body"><h3>Regent Double-Breasted</h3><p>A confident peak-lapel profile with a structured chest and fluid Italian drape.</p><div class="card-meta"><span>Deep Olive · Formal</span><span class="price-label">$1,720</span></div><a href="contact.html" class="btn btn-small btn-outline">Customize Suit</a></div></article>
+          <article class="product-card catalog-card reveal" data-category="wedding slim"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=720&q=72" alt="Ivory wedding dinner suit"><div class="card-body"><h3>Ivory Dinner Suit</h3><p>A refined light-toned jacket with dark contrast details for formal celebrations.</p><div class="card-meta"><span>Ivory · Wedding</span><span class="price-label">$1,850</span></div><a href="contact.html" class="btn btn-small btn-outline">Customize Suit</a></div></article>
+          <article class="product-card catalog-card reveal" data-category="business"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=720&q=72" alt="Blue windowpane suit"><div class="card-body"><h3>Blue Windowpane</h3><p>Subtle checks and a modern tailored line bring character to a versatile suit.</p><div class="card-meta"><span>Blue Check · Business</span><span class="price-label">$1,520</span></div><a href="contact.html" class="btn btn-small btn-outline">Customize Suit</a></div></article>
         </div>
       </div>
     </section>
