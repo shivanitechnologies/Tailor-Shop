@@ -340,6 +340,25 @@ const setupCatalogFilters = () => {
   });
 };
 
+const setupBlogPost = () => {
+  const posts = Array.from(document.querySelectorAll('.article-post[data-post]'));
+  if (!posts.length) return;
+
+  const requestedPost = new URLSearchParams(window.location.search).get('article');
+  const activePost = posts.find((post) => post.dataset.post === requestedPost) || posts[0];
+  posts.forEach((post) => {
+    post.hidden = post !== activePost;
+  });
+
+  const title = activePost.querySelector('h1')?.textContent.trim();
+  const description = activePost.querySelector('.article-deck')?.textContent.trim();
+  if (title) document.title = `${title} | The Gentleman Journal`;
+  if (description) {
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) metaDescription.content = description;
+  }
+};
+
 const showToast = (message, type = 'success') => {
   const region = document.getElementById('toast-region');
   if (!region) return;
@@ -400,6 +419,10 @@ const setupForms = () => {
         return;
       }
       event.preventDefault();
+      if (form.hasAttribute('data-static-demo')) {
+        showToast(form.dataset.staticDemoMessage || 'This demo form is not connected yet. Please contact the studio directly.', 'error');
+        return;
+      }
       showToast('Your request has been saved successfully.', 'success');
     });
   });
@@ -508,6 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupScrollVideos();
   setupGallery();
   setupCatalogFilters();
+  setupBlogPost();
   setupForms();
   setupMeasurement();
   setupSuitDesigner();

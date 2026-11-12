@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Overview | The Gentleman</title>
+  <meta name="description" content="Studio overview for tailoring analytics, customers, orders, and enquiries.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="dashboard-shell admin-dashboard">
+    <aside class="dash-sidebar">
+      <a class="brand dash-brand" href="index.html"><span class="brand-mark">T</span><span class="brand-copy"><strong>THE GENTLEMAN</strong><small>Studio admin</small></span></a>
+      <div class="dash-label">Workspace</div>
+      <nav aria-label="Admin sections">
+        <a class="dash-link active" href="#overview" aria-label="Overview"><span>◦</span><span>Overview</span></a>
+        <a class="dash-link" href="#users" aria-label="Users"><span>◦</span><span>Users</span></a>
+        <a class="dash-link" href="#orders" aria-label="Orders"><span>◦</span><span>Orders</span></a>
+        <a class="dash-link" href="#messages" aria-label="Messages"><span>◦</span><span>Messages</span></a>
+      </nav>
+      <a class="dash-link admin-back-link" href="index.html" aria-label="Back to website"><span>←</span><span>Back to website</span></a>
+    </aside>
+    <main class="dash-main" id="overview">
+      <header class="dash-topbar">
+        <h1>Studio overview</h1>
+        <div class="admin-top-actions"><button class="icon-btn" data-theme-toggle aria-label="Toggle theme"><span class="theme-icon">☾</span></button><button type="button" class="direction-toggle" data-direction-toggle data-direction-state="ltr" aria-label="Switch text direction"><span class="direction-label">RTL</span></button><a class="text-link" href="index.html">View website</a></div>
+      </header>
+      <div class="dash-content">
+        <section class="dash-welcome"><div class="eyebrow">Admin dashboard · demo data</div><h2>Good morning, studio team.</h2><p>At-a-glance activity across appointments, customer accounts, and current commissions.</p></section>
+        <section class="metric-grid" aria-label="Studio analytics">
+          <article class="metric-card"><span>Enquiries this month</span><strong>48</strong><small>+12% vs. last month</small></article>
+          <article class="metric-card"><span>Active customers</span><strong>326</strong><small>18 new profiles</small></article>
+          <article class="metric-card"><span>Open commissions</span><strong>27</strong><small>6 fittings scheduled</small></article>
+          <article class="metric-card"><span>Unread messages</span><strong>5</strong><small>2 need a reply today</small></article>
+        </section>
+        <section class="dash-grid">
+          <article class="dash-card"><h2>Monthly enquiries</h2><p class="form-note">Illustrative enquiries by month</p><div class="bar-chart admin-chart" role="img" aria-label="Illustrative monthly enquiry chart: January 32, February 46, March 39, April 62, May 54, June 71"><div class="bar" style="height:42%" data-label="Jan"></div><div class="bar" style="height:60%" data-label="Feb"></div><div class="bar" style="height:51%" data-label="Mar"></div><div class="bar" style="height:82%" data-label="Apr"></div><div class="bar" style="height:70%" data-label="May"></div><div class="bar" style="height:94%" data-label="Jun"></div></div></article>
+          <article class="dash-card"><h2>Latest activity</h2><div class="notice-list"><div class="notice"><strong>New appointment request</strong><small>Wedding fitting · Today, 10:24</small></div><div class="notice"><strong>Order ready for fitting</strong><small>Commission TG-2048 · Today, 09:10</small></div><div class="notice"><strong>New customer profile</strong><small>Created yesterday</small></div></div></article>
+        </section>
+        <section class="dash-card admin-table-card" id="users"><div class="dash-toolbar"><div><h2>Recent users</h2><p class="form-note">Sample studio records</p></div><a class="text-link" href="auth/signup.html">Create account</a></div><div class="table-wrap"><table><thead><tr><th scope="col">Customer</th><th scope="col">Email</th><th scope="col">Joined</th><th scope="col">Status</th></tr></thead><tbody><tr><td>Amir K.</td><td>amir@example.com</td><td>Nov 10</td><td><span class="status">Active</span></td></tr><tr><td>Daniel R.</td><td>daniel@example.com</td><td>Nov 09</td><td><span class="status">Active</span></td></tr><tr><td>Omar S.</td><td>omar@example.com</td><td>Nov 08</td><td><span class="status">New</span></td></tr></tbody></table></div></section>
+        <section class="dash-card admin-table-card" id="orders"><div class="dash-toolbar"><div><h2>Recent orders</h2><p class="form-note">Sample commission tracking</p></div><a class="text-link" href="services.html">View services</a></div><div class="table-wrap"><table><thead><tr><th scope="col">Reference</th><th scope="col">Customer</th><th scope="col">Commission</th><th scope="col">Status</th><th scope="col">Due</th></tr></thead><tbody><tr><td>TG-2048</td><td>Amir K.</td><td>Two-piece suit</td><td><span class="status">Fitting</span></td><td>Nov 18</td></tr><tr><td>TG-2047</td><td>Daniel R.</td><td>Wedding suit</td><td><span class="status">In progress</span></td><td>Nov 24</td></tr><tr><td>TG-2046</td><td>Omar S.</td><td>Custom shirts</td><td><span class="status">Confirmed</span></td><td>Nov 29</td></tr></tbody></table></div></section>
+        <section class="dash-card admin-table-card" id="messages"><div class="dash-toolbar"><div><h2>Recent messages</h2><p class="form-note">Sample enquiry inbox</p></div><a class="text-link" href="contact.html">Open contact page</a></div><div class="notice-list"><div class="notice"><strong>Wedding commission enquiry <span class="status">Unread</span></strong><small>Amir K. · Asking about fitting dates and cloth choices.</small></div><div class="notice"><strong>Alteration assessment</strong><small>Daniel R. · Jacket sleeve and waist adjustment.</small></div><div class="notice"><strong>Fabric appointment</strong><small>Omar S. · Interested in lightweight business suiting.</small></div></div></section>
+        <p class="form-note admin-demo-note">This standalone dashboard is a front-end demonstration. Records and analytics are sample data; authentication, persistence, and live messaging require a connected backend.</p>
+      </div>
+    </main>
+  </div>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div><script src="js/app.js"></script>
+</body>
+</html>
